@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FastAPI Demo Page</title>
+	<style>
+		body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+		.container { max-width: 400px; margin: 80px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; text-align: center; }
+		h1 { color: #0074d9; }
+		#message { font-size: 1.2em; margin-top: 20px; color: #333; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>FastAPI Demo</h1>
+		<button onclick="fetchMessage()">Get Message</button>
+		<div id="message"></div>
+	</div>
+	<script>
+		async function fetchMessage() {
+			const res = await fetch("/message", {headers: {"accept": "application/json"}});
+			if (res.ok) {
+				const data = await res.json();
+				document.getElementById("message").textContent = data.message;
+			} else {
+				document.getElementById("message").textContent = "Error fetching message.";
+			}
+		}
+	</script>
+</body>
+</html>
