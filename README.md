@@ -21,6 +21,13 @@ You should see:
 ```json
 {"message": "Hello, FastAPI!"}
 ```
+
+### Pyarmor Build
+	```bash
+	pyarmor gen -O build -r main.py --pack onefile
+	```
+
+
 ### Dockerization
 
 1. Build the image
