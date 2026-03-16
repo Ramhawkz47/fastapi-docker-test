@@ -11,19 +11,12 @@ RUN apt-get update \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install dependencies
-COPY requirements.txt ./
-RUN python3 -m venv venv \
-	&& . venv/bin/activate \
-	&& pip install --upgrade pip \
-	&& pip install -r requirements.txt
-
 # Copy app files
-COPY main.py ./
+COPY build/main ./
 COPY index.html ./
 
 # Expose port
 EXPOSE 8000
 
 # Start FastAPI app with Uvicorn
-CMD ["/app/venv/bin/uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["./main"]
