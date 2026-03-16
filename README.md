@@ -23,9 +23,11 @@ You should see:
 ```
 
 ### Pyarmor Build
-	```bash
-	pyarmor gen -O build -r main.py --pack onefile
-	```
+
+Bind the code to onefile 
+```bash
+pyarmor gen -O build -r main.py --pack onefile
+```
 
 
 ### Dockerization
